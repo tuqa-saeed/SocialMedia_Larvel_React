@@ -30,51 +30,89 @@ const CreatePost = () => {
     };
 
     return (
-        <div className="create-post mt-2 shadow-lg">
-            <div className="create-post-header">
-                <h1>Create Post</h1>
-            </div>
-            <form onSubmit={handleSubmit}>
-                <div className="create-post-content">
-                    <div className="create-post-image">
-                        <img src={imageUrl} alt="Preview" />
-                        <label
-                            htmlFor="image"
-                            className="image-upload-label mt-2 text-success border-bottom"
-                        >
-                            <input
-                                type="file"
-                                className="form-control d-none"
-                                id="image"
-                                name="image"
-                                accept="image/*"
-                                onChange={handleImageChange}
+        <div className="container-fluid d-flex justify-content-center align-items-center min-vh-100" style={{ backgroundColor: '#101820', backgroundImage: 'url(https://www.transparenttextures.com/patterns/asfalt-dark.png)' }}>
+            <div className="card col-md-6 p-5 rounded-4 shadow-lg" style={{ backgroundColor: '#282c34' }}>
+                <div className="create-post-header text-center mb-4">
+                    <h1 className="text-light fw-bold" style={{ fontFamily: 'Arial, sans-serif', fontSize: '2.5rem' }}>Create Post</h1>
+                </div>
+                <form onSubmit={handleSubmit}>
+                    <div className="create-post-content">
+                        <div className="create-post-image mb-4">
+                            <div className="position-relative">
+                                <img
+                                    src={imageUrl || 'https://via.placeholder.com/600x300.png?text=Preview+Image'}
+                                    alt="Preview"
+                                    className="img-fluid rounded-3 mb-3"
+                                    style={{ height: '300px', objectFit: 'cover', borderRadius: '15px' }}
+                                />
+                                <label
+                                    htmlFor="image"
+                                    className="image-upload-label text-light border-bottom border-2 position-absolute"
+                                    style={{
+                                        bottom: '10px',
+                                        left: '50%',
+                                        transform: 'translateX(-50%)',
+                                        backgroundColor: '#101820',
+                                        padding: '10px',
+                                        borderRadius: '10px',
+                                        cursor: 'pointer',
+                                        fontWeight: '500',
+                                        fontSize: '1rem',
+                                    }}
+                                >
+                                    <input
+                                        type="file"
+                                        className="form-control d-none"
+                                        id="image"
+                                        name="image"
+                                        accept="image/*"
+                                        onChange={handleImageChange}
+                                        required
+                                    />
+                                    Upload a photo
+                                </label>
+                            </div>
+                        </div>
+                        <div className="create-post-inputs mb-4">
+                            <textarea
+                                id="caption"
+                                name="caption"
+                                className="form-control p-3 bg-transparent text-light border-0 shadow-sm"
+                                rows={7}
+                                value={caption}
+                                onChange={handleCaptionChange}
+                                placeholder="Write a caption..."
                                 required
+                                style={{
+                                    borderBottom: '2px solid #00b3b3',
+                                    fontSize: '1.1rem',
+                                    resize: 'none',
+                                    fontFamily: 'Arial, sans-serif',
+                                }}
                             />
-                            Upload a photo
-                        </label>
+                        </div>
                     </div>
-                    <div className="create-post-inputs">
-                        <textarea
-                            id="caption"
-                            name="caption"
-                            className="form-control"
-                            rows={7}
-                            value={caption}
-                            onChange={handleCaptionChange}
-                            placeholder="Write a caption..."
-                            required
-                        />
+                    <div className="create-post-footer text-center">
+                        <button
+                            type="submit"
+                            className="btn btn-success w-50 py-3 rounded-4 fw-bold"
+                            style={{
+                                background: 'linear-gradient(135deg, #00b3b3 10%, #003366 90%)',
+                                border: 'none',
+                                boxShadow: '0 4px 10px rgba(0, 179, 179, 0.3)',
+                                transition: 'all 0.3s ease',
+                            }}
+                            onMouseOver={(e) => e.target.style.transform = 'scale(1.05)'}
+                            onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
+                        >
+                            Share
+                        </button>
                     </div>
-                </div>
-                <div className="create-post-footer">
-                    <button type="submit" className="bg-success">
-                        Share
-                    </button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     );
+    
 };
 
 export default CreatePost;

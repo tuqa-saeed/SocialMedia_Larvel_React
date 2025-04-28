@@ -22,73 +22,79 @@ const PostCards = (props) => {
     return (
         <>
             {posts.map((post) => (
-                <div className="d-flex justify-content-center" key={post.id}>
-                    <div className="post">
-                        <div className="post-header">
-                            <span className="d-flex align-items-center">
-                                <img
-                                    src={post.user.user_profile}
-                                    alt=""
-                                    height="35px"
-                                    width="35px"
-                                    className="rounded-circle me-2"
-                                    style={{ objectFit: "cover" }}
-                                />
-                                <div>
-                                    <span className="fw-bold">
-                                        {post.user.name}
+                <div className="d-flex justify-content-center mb-4" key={post.id}>
+                    <div className="post card bg-dark text-white p-3" style={{ borderRadius: "16px", width: "100%", maxWidth: "600px" }}>
+                        
+                        {/* Header */}
+                        <div className="post-header d-flex align-items-center mb-3">
+                            <img
+                                src={post.user.user_profile}
+                                alt="Profile"
+                                height="40"
+                                width="40"
+                                className="rounded-circle me-2"
+                                style={{ objectFit: "cover", border: "2px solid #fff" }}
+                            />
+                            <div className="d-flex flex-column">
+                                <span className="fw-bold">{post.user.name}</span>
+                                {post.user.id !== auth.id && (
+                                    <span
+                                        role="button"
+                                        onClick={() =>
+                                            followUser(
+                                                post.user.id,
+                                                !post.user.is_followed
+                                            )
+                                        }
+                                        className={`badge mt-1 ${
+                                            post.user.is_followed ? "bg-success" : "bg-info"
+                                        }`}
+                                        style={{ cursor: "pointer", fontSize: "0.8rem" }}
+                                    >
+                                        {post.user.is_followed ? "Following" : "Follow"}
                                     </span>
-                                    {post.user.id != auth.id && (
-                                        <span
-                                            role="button"
-                                            onClick={() =>
-                                                followUser(
-                                                    post.user.id,
-                                                    !post.user.is_followed
-                                                )
-                                            }
-                                            className={`ms-2 text-white fw-normal badge ${
-                                                post.user.is_followed
-                                                    ? "bg-success"
-                                                    : "bg-info "
-                                            }`}
-                                        >
-                                            {post.user.is_followed
-                                                ? " Following"
-                                                : " Follow"}
-                                        </span>
-                                    )}
-                                </div>
-                            </span>
+                                )}
+                            </div>
                         </div>
+    
+                        {/* Post Image */}
                         <div
-                            className="post-image"
+                            className="post-image mb-3"
                             style={{
                                 backgroundImage: `url(${post.post_image})`,
+                                backgroundSize: "cover",
+                                backgroundPosition: "center",
+                                height: "300px",
+                                borderRadius: "12px",
+                                overflow: "hidden",
                             }}
                         >
-                            <img src={post.post_image} alt="Post" />
+                            <img
+                                src={post.post_image}
+                                alt="Post"
+                                className="img-fluid d-none"
+                            />
                         </div>
-                        <div className="post-actions d-flex justify-content-start align-items-center">
+    
+                        {/* Post Actions */}
+                        <div className="post-actions d-flex align-items-center mb-2">
                             <h5
                                 role="button"
-                                className="m-2"
-                                onClick={() =>
-                                    handleLike(post.id, !post.is_liked)
-                                }
+                                className="me-3 d-flex align-items-center"
+                                onClick={() => handleLike(post.id, !post.is_liked)}
+                                style={{ cursor: "pointer" }}
                             >
                                 <FontAwesomeIcon
-                                    icon={
-                                        post.is_liked ? faHeart : faHeartRegular
-                                    }
+                                    icon={post.is_liked ? faHeart : faHeartRegular}
                                     className="me-1"
                                 />
                                 {post.likes_count}
                             </h5>
                             <h5
                                 role="button"
-                                className="m-2"
+                                className="d-flex align-items-center"
                                 onClick={() => handleLike(post.id)}
+                                style={{ cursor: "pointer" }}
                             >
                                 <FontAwesomeIcon
                                     icon={faComment}
@@ -97,17 +103,18 @@ const PostCards = (props) => {
                                 10
                             </h5>
                         </div>
-                        <div className="post-caption my-3 mx-2">
-                            <span className="fw-bold me-3">
-                                {post.user.name}:
-                            </span>
-                            {post.caption}
+    
+                        {/* Caption */}
+                        <div className="post-caption">
+                            <span className="fw-bold me-2">{post.user.name}:</span>
+                            <span>{post.caption}</span>
                         </div>
                     </div>
                 </div>
             ))}
         </>
     );
+    
 };
 
 export default PostCards;

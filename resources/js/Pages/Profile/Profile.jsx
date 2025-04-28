@@ -8,15 +8,11 @@ import Feed from "../Feed/Feed";
 export default function Profile(props) {
     const { posts } = props;
     return (
-        <div className="profile">
+        <div className=" bg-dark profile">
             <ProfileHeader />
-            <div
-                className="nav nav-tabs justify-content-center profile-nav border-bottom border-white"
-                id="nav-tab"
-                role="tablist"
-            >
+            <div className=" nav nav-tabs justify-content-center profile-nav border-bottom border-light" id="nav-tab" role="tablist">
                 <button
-                    className="nav-link active rounded-0 rounded-top "
+                    className="nav-link active rounded-0 rounded-top text-white bg-success"
                     id="nav-home-tab"
                     data-bs-toggle="tab"
                     data-bs-target="#tab-gallery"
@@ -28,7 +24,7 @@ export default function Profile(props) {
                     Gallery
                 </button>
                 <button
-                    className="nav-link  rounded-0 rounded-top"
+                    className="nav-link rounded-0 rounded-top text-white bg-dark"
                     id="nav-profile-tab"
                     data-bs-toggle="tab"
                     data-bs-target="#tab-posts"
@@ -40,7 +36,7 @@ export default function Profile(props) {
                     Posts
                 </button>
             </div>
-            <div className="tab-content mt-2" id="myTabContent">
+            <div className=" bg-light tab-content mt-3" id="myTabContent">
                 <div
                     className="tab-pane fade show active"
                     id="tab-gallery"
@@ -50,7 +46,7 @@ export default function Profile(props) {
                     <Gallery />
                 </div>
                 <div
-                    className="tab-pane fade"
+                    className=" tab-pane fade"
                     id="tab-posts"
                     role="tabpanel"
                     aria-labelledby="tab-posts-tab"
@@ -60,4 +56,5 @@ export default function Profile(props) {
             </div>
         </div>
     );
+    
 }

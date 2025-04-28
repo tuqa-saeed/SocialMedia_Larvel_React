@@ -1,12 +1,14 @@
-import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+/* import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "@inertiajs/react";
 import React from "react";
 
 export default function AuthNavbar({ auth }) {
     return (
-        <header className="sticky-top bg-success py-2">
-            <div className="container-fluid">
+        <header className="">
+            {}
+            <div className="">
+                
                 <div className="row align-items-center justify-content-between">
                     <div className="col">
                         <h4 className="text-light text-center mb-0">
@@ -65,3 +67,4 @@ export default function AuthNavbar({ auth }) {
         </header>
     );
 }
+ */

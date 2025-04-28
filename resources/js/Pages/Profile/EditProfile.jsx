@@ -63,114 +63,102 @@ export default function EditProfile(props) {
     };
 
     return (
-        <div>
-            <div className="card">
+        <div className="container-fluid d-flex justify-content-center align-items-center min-vh-100" style={{ backgroundColor: '#101820', backgroundImage: 'url(https://www.transparenttextures.com/patterns/asfalt-dark.png)' }}>
+            <div className="card col-md-6 p-5 rounded-4 shadow-lg" style={{ backgroundColor: '#282c34' }}>
                 <div className="card-body">
-                    {/* form with inputs : name , email, username, profile picture */}
+                    {/* form with inputs: name, email, username, profile picture */}
                     <form onSubmit={handleEditProfileForm}>
                         <div className="row">
-                            <div className="col-md-6 mb-3">
-                                <div className="d-flex align-items-center">
-                                    <div className="">
-                                        <img
-                                            src={imageUrl}
-                                            alt="profile"
-                                            height={100}
-                                            width={100}
-                                            className="rounded-pill "
-                                            style={{ objectFit: "cover" }}
-                                        />
-                                    </div>
-                                    <div className="ms-3">
-                                        <a
-                                            onClick={() =>
-                                                document
-                                                    .getElementById("profile")
-                                                    .click()
-                                            }
-                                            className="btn btn-success"
-                                        >
-                                            Change Avatar
-                                        </a>
-                                    </div>
+                            <div className="col-md-6 mb-4 d-flex justify-content-center align-items-center">
+                                <div>
+                                    <img
+                                        src={imageUrl || 'https://via.placeholder.com/100'}
+                                        alt="profile"
+                                        className="rounded-pill mb-3"
+                                        style={{
+                                            objectFit: 'cover',
+                                            height: '100px',
+                                            width: '100px',
+                                        }}
+                                    />
                                 </div>
-                                <input
-                                    type="file"
-                                    className="form-control d-none"
-                                    id="profile"
-                                    name="profile"
-                                    onChange={onChangeProfileImage}
-                                />
-                                {errors.profile && (
-                                    <span className="text-danger">
-                                        {errors.profile}
-                                    </span>
-                                )}
+                                <div className="ms-3">
+                                    <label
+                                        htmlFor="profile"
+                                        className="btn btn-success text-light fw-bold"
+                                        style={{
+                                            cursor: 'pointer',
+                                            borderRadius: '10px',
+                                            padding: '10px 20px',
+                                            transition: 'all 0.3s ease',
+                                        }}
+                                        onMouseOver={(e) => e.target.style.transform = 'scale(1.05)'}
+                                        onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
+                                    >
+                                        Change Avatar
+                                    </label>
+                                    <input
+                                        type="file"
+                                        className="form-control d-none"
+                                        id="profile"
+                                        name="profile"
+                                        onChange={onChangeProfileImage}
+                                    />
+                                </div>
                             </div>
+    
                             <div className="col-md-6 mb-3">
-                                <label htmlFor="name" className="form-label">
-                                    Name
-                                </label>
+                                <label htmlFor="name" className="form-label text-light">Name</label>
                                 <input
                                     type="text"
-                                    className="form-control"
+                                    className="form-control bg-transparent text-light border-0 shadow-sm"
                                     value={data.name}
-                                    onChange={(e) =>
-                                        setData("name", e.target.value)
-                                    }
+                                    onChange={(e) => setData("name", e.target.value)}
+                                    style={{
+                                        borderBottom: '2px solid #00b3b3',
+                                        fontSize: '1.1rem',
+                                        fontFamily: 'Arial, sans-serif',
+                                    }}
                                 />
-                                {errors.name && (
-                                    <span className="text-danger">
-                                        {errors.name}
-                                    </span>
-                                )}
+                                {errors.name && <span className="text-danger">{errors.name}</span>}
                             </div>
+    
                             <div className="col-md-6 mb-3">
-                                <label
-                                    htmlFor="username"
-                                    className="form-label"
-                                >
-                                    Username
-                                </label>
+                                <label htmlFor="username" className="form-label text-light">Username</label>
                                 <input
                                     type="text"
-                                    className="form-control"
+                                    className="form-control bg-transparent text-light border-0 shadow-sm"
                                     id="username"
                                     name="username"
                                     value={data.username}
                                     onChange={onChangeUsername}
+                                    style={{
+                                        borderBottom: '2px solid #00b3b3',
+                                        fontSize: '1.1rem',
+                                    }}
                                 />
-                                {errors.username && (
-                                    <span className="text-danger">
-                                        {errors.username}
-                                    </span>
-                                )}
+                                {errors.username && <span className="text-danger">{errors.username}</span>}
                             </div>
-
+    
                             <div className="col-md-6 mb-3">
-                                <label htmlFor="email" className="form-label">
-                                    Email
-                                </label>
+                                <label htmlFor="email" className="form-label text-light">Email</label>
                                 <input
                                     type="email"
-                                    className="form-control"
+                                    className="form-control bg-transparent text-light border-0 shadow-sm"
                                     id="email"
                                     name="email"
                                     value={data.email}
-                                    onChange={(e) =>
-                                        setData("email", e.target.value)
-                                    }
+                                    onChange={(e) => setData("email", e.target.value)}
+                                    style={{
+                                        borderBottom: '2px solid #00b3b3',
+                                        fontSize: '1.1rem',
+                                    }}
                                 />
-                                {errors.email && (
-                                    <span className="text-danger">
-                                        {errors.email}
-                                    </span>
-                                )}
+                                {errors.email && <span className="text-danger">{errors.email}</span>}
                             </div>
+    
                             <div className="col-md-12 mb-3">
-                                <label htmlFor="bio" className="form-label">
-                                    Bio
-                                </label>
+                                <label htmlFor="bio" className="form-label text-light">Bio</label>
                                 <textarea
                                     name="bio"
                                     id="bio"
@@ -182,30 +170,42 @@ export default function EditProfile(props) {
                                         clearErrors("bio");
                                     }}
                                     placeholder="Write something about yourself..."
-                                >
-                                    {data.bio}
-                                </textarea>
-                                {errors.bio && (
-                                    <span className="text-danger">
-                                        {errors.bio}
-                                    </span>
-                                )}
+                                    className="form-control bg-transparent text-light border-0 shadow-sm"
+                                    style={{
+                                        borderBottom: '2px solid #00b3b3',
+                                        fontSize: '1.1rem',
+                                        resize: 'none',
+                                    }}
+                                />
+                                {errors.bio && <span className="text-danger">{errors.bio}</span>}
                             </div>
                         </div>
-
-                        <button type="submit" className="btn btn-primary">
-                            Save
-                        </button>
-                        <Link
-                            href="/profile"
-                            as="button"
-                            className="btn btn-secondary ms-2"
-                        >
-                            Back
-                        </Link>
+    
+                        <div className="text-center mt-4">
+                            <button
+                                type="submit"
+                                className="btn btn-success w-50 py-3 rounded-4 fw-bold"
+                                style={{
+                                    background: 'linear-gradient(135deg, #00b3b3 10%, #003366 90%)',
+                                    border: 'none',
+                                    boxShadow: '0 4px 10px rgba(0, 179, 179, 0.3)',
+                                    transition: 'all 0.3s ease',
+                                }}
+                                onMouseOver={(e) => e.target.style.transform = 'scale(1.05)'}
+                                onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
+                            >
+                                Save
+                            </button>
+                        </div>
+                        <div className="text-center mt-3">
+                            <Link href="/profile" className="btn btn-secondary ms-2 py-3 rounded-4">
+                                Back
+                            </Link>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     );
+    
 }

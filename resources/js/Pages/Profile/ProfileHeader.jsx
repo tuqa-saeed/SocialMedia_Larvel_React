@@ -9,65 +9,103 @@ function ProfileHeader(props) {
     const { auth, totalPosts, totalFollowers, totalFollowings } =
         usePage().props;
 
-    return (
-        <header className="">
-            <div className="profile-header d-lg-flex justify-content-center">
-                <div className="col-lg-4 mb-2 mb-lg-0 d-flex align-items-center">
-                    {/* Profile Picture */}
-                    <img
-                        src={auth.user_profile}
-                        alt="Profile Picture"
-                        className="profile-picture"
-                    />
-                    <div className="flex-column text-center">
-                        <h3 className="align-middle">{auth.name}</h3>
-                        <span className="text-muted">{auth.email}</span>
-                    </div>
+        return (
+    <header>
+        <div className="profile-header d-lg-flex justify-content-center ">
+            <div className="col-lg-4 mb-2 mb-lg-0 d-flex align-items-center">
+                {/* Profile Picture */}
+                <img
+                    src={auth.user_profile}
+                    alt="Profile Picture"
+                    className="profile-picture rounded-circle"
+                    style={{ objectFit: 'cover', width: '120px', height: '120px' }}
+                />
+                <div className="flex-column text-center ms-3">
+                    <h3 className="align-middle text-white">{auth.name}</h3>
+                    <span className="text-muted">{auth.email}</span>
                 </div>
-                {/* Profile Username */}
-                <div className="container">
-                    <div className="row align-items-center">
-                        <div className="col-lg-4 mb-2 mb-lg-0">
-                            <div className="card profile-card py-3">
-                                <div className="card-body d-flex justify-content-between">
-                                    <h4 className="card-title mb-0">Posts</h4>
-                                    <h5 className="mb-0">{totalPosts}</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-4 mb-2 mb-lg-0">
-                            <div className="card profile-card py-3">
-                                <div className="card-body d-flex justify-content-between">
-                                    <h4 className="card-title mb-0">
-                                        Followers
-                                    </h4>
-                                    <h5 className="mb-0">{totalFollowers}</h5>
-                                </div>
-                            </div>
-                        </div>
+            </div>
 
-                        {/* Following Section */}
-                        <div className="col-lg-4 mb-2 mb-lg-0">
-                            <div className="card profile-card py-3">
-                                <div className="card-body d-flex justify-content-between">
-                                    <h4 className="card-title mb-0">
-                                        Following
-                                    </h4>
-                                    <h5 className="mb-0">{totalFollowings}</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            {/* Profile Stats */}
+            <div className="container d-flex flex-column align-items-center">
+  <div className="mb-4" style={{ width: "40%", transition: "all 0.8s ease", transform: "scale(1)", opacity: 1 }}>
+    <div className="card shadow-sm border-0 rounded-4 text-white text-center" style={{
+     background: "linear-gradient(135deg, #11998e, #38ef7d)",
+      transition: "transform 0.5s, box-shadow 0.5s",
+      cursor: "pointer"
+    }}
+    onMouseEnter={e => {
+      e.currentTarget.style.transform = "scale(1.05)";
+      e.currentTarget.style.boxShadow = "0 8px 20px rgba(0,0,0,0.3)";
+    }}
+    onMouseLeave={e => {
+      e.currentTarget.style.transform = "scale(1)";
+      e.currentTarget.style.boxShadow = "0 4px 10px rgba(0,0,0,0.2)";
+    }}>
+      <div className="card-body">
+        <h4 className="card-title mb-2">Posts</h4>
+        <h2 className="fw-bold">{totalPosts}</h2>
+      </div>
+    </div>
+  </div>
+
+  <div className="mb-4" style={{ width: "40%", transition: "all 0.8s ease", transform: "scale(1)", opacity: 1 }}>
+    <div className="card shadow-sm border-0 rounded-4 text-white text-center" style={{
+     background: "linear-gradient(135deg, #6a11cb, #2575fc",
+      transition: "transform 0.5s, box-shadow 0.5s",
+      cursor: "pointer"
+    }}
+    onMouseEnter={e => {
+      e.currentTarget.style.transform = "scale(1.05)";
+      e.currentTarget.style.boxShadow = "0 8px 20px rgba(0,0,0,0.3)";
+    }}
+    onMouseLeave={e => {
+      e.currentTarget.style.transform = "scale(1)";
+      e.currentTarget.style.boxShadow = "0 4px 10px rgba(0,0,0,0.2)";
+    }}>
+      <div className="card-body">
+        <h4 className="card-title mb-2">Followers</h4>
+        <h2 className="fw-bold">{totalFollowers}</h2>
+      </div>
+    </div>
+  </div>
+
+  <div className="mb-4" style={{ width: "40%", transition: "all 0.8s ease", transform: "scale(1)", opacity: 1 }}>
+    <div className="card shadow-sm border-0 rounded-4 text-white text-center" style={{
+      background: "linear-gradient(135deg, #ff6a00, #ee0979)",
+      transition: "transform 0.5s, box-shadow 0.5s",
+      cursor: "pointer"
+    }}
+    onMouseEnter={e => {
+      e.currentTarget.style.transform = "scale(1.05)";
+      e.currentTarget.style.boxShadow = "0 8px 20px rgba(0,0,0,0.3)";
+    }}
+    onMouseLeave={e => {
+      e.currentTarget.style.transform = "scale(1)";
+      e.currentTarget.style.boxShadow = "0 4px 10px rgba(0,0,0,0.2)";
+    }}>
+      <div className="card-body">
+        <h4 className="card-title mb-2">Following</h4>
+        <h2 className="fw-bold">{totalFollowings}</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+
                 </div>
-            </div>
-            <div className="row mt-4">
-                <h5>{auth.username}</h5>
-                <h6 style={{ whiteSpace: "pre-line", lineHeight: 1.5 }}>
-                    {auth.bio}
-                </h6>
-            </div>
-        </header>
-    );
+        
+
+        <div className="row mt-4 text-white">
+            <h5>{auth.username}</h5>
+            <h6 style={{ whiteSpace: "pre-line", lineHeight: 1.5 }}>
+                {auth.bio}
+            </h6>
+        </div>
+    </header>
+);
+
+        
 }
 
 export default ProfileHeader;

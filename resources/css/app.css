@@ -1,8 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 
 body {
-    font-family: "Pacifico", cursive;
-}
+    font-family: 'Reem Kufi Fun', sans-serif;
+
+
+    }
 
 .login-dropdown {
     overflow-y: scroll;
@@ -14,10 +16,10 @@ body {
 }
 
 .main-content {
-    background: linear-gradient(
+    /* background: linear-gradient(
         180deg,
         #19875447,
         #fafafa
-    ); /* Gradient background */
-    animation: gradientAnimation 15s infinite alternate;
+    ); */
+   /*  animation: gradientAnimation 15s infinite alternate; */
 }
