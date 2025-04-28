@@ -10,7 +10,6 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,6 +41,7 @@ Route::group(['middleware' => 'auth'],function (){
     Route::get('/new-post',[PostController::class,'myNewPost'])->name('posts.create');
     Route::post('/new-post',[PostController::class,'storeNewPost'])->name('posts.store');
     Route::post('/like-post',[PostController::class,'likePost'])->name('posts.like');
+    Route::post('/comment-post', [PostController::class, 'commentPost']);
 
     Route::post('/follow',[UserFollowController::class,'followUser'])->name('users.follow');
 });

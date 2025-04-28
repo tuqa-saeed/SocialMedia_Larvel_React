@@ -14,7 +14,7 @@ function Feed(props) {
     };
 
     return (
-        <div className="post-feed">
+        <div className="post-feed mb-0">
             {posts && <PostCards posts={posts} followUser={followUser} />}
         </div>
     );

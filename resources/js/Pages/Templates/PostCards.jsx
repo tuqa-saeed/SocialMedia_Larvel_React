@@ -19,14 +19,23 @@ const PostCards = (props) => {
         );
     };
 
+    const handleComment = (postId) => {
+        router.post(
+            "/comment-post",
+            { post_id: postId },
+            { preserveScroll: true }
+        );
+    };
+    
+
     return (
         <>
             {posts.map((post) => (
                 <div className="d-flex justify-content-center mb-4" key={post.id}>
                     <div className="post card bg-dark text-white p-3" style={{ borderRadius: "16px", width: "100%", maxWidth: "600px" }}>
-                        
+                    
                         {/* Header */}
-                        <div className="post-header d-flex align-items-center mb-3">
+                        <div className="post-header bg-dark d-flex align-items-center mb-3">
                             <img
                                 src={post.user.user_profile}
                                 alt="Profile"
@@ -55,6 +64,11 @@ const PostCards = (props) => {
                                     </span>
                                 )}
                             </div>
+                        </div>
+                        
+                        {/* Caption */}
+                        <div className="post-caption">
+                            <span>{post.caption}</span>
                         </div>
     
                         {/* Post Image */}
@@ -91,24 +105,22 @@ const PostCards = (props) => {
                                 {post.likes_count}
                             </h5>
                             <h5
-                                role="button"
-                                className="d-flex align-items-center"
-                                onClick={() => handleLike(post.id)}
-                                style={{ cursor: "pointer" }}
-                            >
-                                <FontAwesomeIcon
-                                    icon={faComment}
-                                    className="me-1"
-                                />
-                                10
-                            </h5>
+    role="button"
+    className="d-flex align-items-center"
+    onClick={() => handleComment(post.id)}
+    style={{ cursor: "pointer" }}
+>
+    <FontAwesomeIcon
+        icon={faComment}
+        className="me-1"
+    />
+    {/* You can replace post.likes_count with post.comments_count later */}
+    {post.comments_count}
+</h5>
+
                         </div>
     
-                        {/* Caption */}
-                        <div className="post-caption">
-                            <span className="fw-bold me-2">{post.user.name}:</span>
-                            <span>{post.caption}</span>
-                        </div>
+                        
                     </div>
                 </div>
             ))}

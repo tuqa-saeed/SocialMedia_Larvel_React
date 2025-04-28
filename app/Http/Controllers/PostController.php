@@ -58,4 +58,22 @@ class PostController extends Controller
 
         return redirect()->back();
     }
+
+    public function commentPost(Request $request)
+{
+    $request->validate([
+        'post_id' => 'required|exists:posts,id',
+        // Optionally: you could add 'comment_text' => 'required|string|max:255' if you want text comments
+    ]);
+
+    PostAction::create([
+        'post_id' => $request->post_id,
+        'user_id' => Auth::id(),
+        'action_type' => 2, // 2 could represent "comment" in your action types
+        'action_value' => true, // you could store true just to mark it happened
+    ]);
+
+    return redirect()->back();
+}
+
 }

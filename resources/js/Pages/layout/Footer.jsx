@@ -8,7 +8,7 @@ import React from "react";
 
 function Footer() {
     return (
-        <footer className="fixed-bottom">
+        <footer className="fixed-top">
             <div className="">
                 <Link href="/" className=" btn bg-success text-white mx-2">
                     <FontAwesomeIcon icon={faHome} />

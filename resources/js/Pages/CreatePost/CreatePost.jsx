@@ -6,7 +6,7 @@ const CreatePost = () => {
     const [caption, setCaption] = useState("");
     const [image, setImage] = useState(null);
     const [imageUrl, setImageUrl] = useState(
-        "https://static.vecteezy.com/system/resources/previews/019/896/008/original/male-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png"
+        "https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
     );
 
     const handleCaptionChange = (e) => {
@@ -40,10 +40,10 @@ const CreatePost = () => {
                         <div className="create-post-image mb-4">
                             <div className="position-relative">
                                 <img
-                                    src={imageUrl || 'https://via.placeholder.com/600x300.png?text=Preview+Image'}
+                                    src={imageUrl || 'https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg'}
                                     alt="Preview"
                                     className="img-fluid rounded-3 mb-3"
-                                    style={{ height: '300px', objectFit: 'cover', borderRadius: '15px' }}
+                                    style={{ height: '200px', objectFit: 'cover', borderRadius: '15px' }}
                                 />
                                 <label
                                     htmlFor="image"
@@ -57,7 +57,7 @@ const CreatePost = () => {
                                         borderRadius: '10px',
                                         cursor: 'pointer',
                                         fontWeight: '500',
-                                        fontSize: '1rem',
+                                        fontSize: '0.8rem',
                                     }}
                                 >
                                     <input

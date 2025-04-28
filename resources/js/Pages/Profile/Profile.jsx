@@ -10,7 +10,7 @@ export default function Profile(props) {
     return (
         <div className=" bg-dark profile">
             <ProfileHeader />
-            <div className=" nav nav-tabs justify-content-center profile-nav border-bottom border-light" id="nav-tab" role="tablist">
+            <div className="nav nav-tabs justify-content-center profile-nav border-bottom border-light" id="nav-tab" role="tablist">
                 <button
                     className="nav-link active rounded-0 rounded-top text-white bg-success"
                     id="nav-home-tab"
@@ -36,7 +36,7 @@ export default function Profile(props) {
                     Posts
                 </button>
             </div>
-            <div className=" bg-light tab-content mt-3" id="myTabContent">
+            <div className=" bg-dark tab-content mt-3" id="myTabContent">
                 <div
                     className="tab-pane fade show active"
                     id="tab-gallery"
