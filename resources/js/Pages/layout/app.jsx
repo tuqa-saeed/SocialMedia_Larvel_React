@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "./navbar";
 import Footer from "./Footer";
 import "../../../css/app.css";
 import { usePage } from "@inertiajs/react";
@@ -8,8 +7,7 @@ import { usePage } from "@inertiajs/react";
 const app = ({ children }) => {
     const { auth, flash } = usePage().props;
     return (
-        <div className="vh-100 main-content">
-          
+        <div className=" bg-dark main-content">
             {flash?.success && (
                 <div className="alert alert-success">{flash.success}</div>
             )}

@@ -12,7 +12,7 @@ function Gallery() {
                     {posts &&
                         posts.map((post) => {
                             return (
-                                <div className="col-12 col-md-4 mb-4" key={post.id}>
+                                <div className=" col-12 col-md-4 mb-4" key={post.id}>
                                     <div className="image-card shadow-lg rounded-3 overflow-hidden">
                                         <img
                                             src={post.post_image}
